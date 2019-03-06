@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="bronze">Bronze</string>
+    <string name="silver">Silver</string>
+    <string name="gold">Gold</string>
+    <string name="reputations">%1$d reputations</string>
+    <string name="recent_activities">Recent Activities</string>
+
+    <string name="timeline_type_commented">You have commented</string>
+    <string name="timeline_type_answered">You have answered</string>
+    <string name="timeline_type_badge">You got badge</string>
+    <string name="timeline_type_revision">You got revision</string>
+</resources>

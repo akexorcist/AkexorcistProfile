@@ -1,0 +1,115 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="TextView" />
+
+    <style name="TextView.Black">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="TextView.Black.ExtraSmall">
+        <item name="android:textSize">@dimen/default_text_size_extra_small</item>
+    </style>
+
+    <style name="TextView.Black.Small">
+        <item name="android:textSize">@dimen/default_text_size_small</item>
+    </style>
+
+    <style name="TextView.Black.Medium">
+        <item name="android:textSize">@dimen/default_text_size</item>
+    </style>
+
+    <style name="TextView.Black.Large">
+        <item name="android:textSize">@dimen/default_text_size_large</item>
+    </style>
+
+    <style name="TextView.Black.ExtraLarge">
+        <item name="android:textSize">@dimen/default_text_size_extra_large</item>
+    </style>
+
+    <style name="TextView.DarkGray">
+        <item name="android:textColor">@color/dark_gray</item>
+    </style>
+
+    <style name="TextView.DarkGray.Medium">
+        <item name="android:textSize">@dimen/default_text_size</item>
+    </style>
+
+    <style name="TextView.DarkGray.Large">
+        <item name="android:textSize">@dimen/default_text_size_large</item>
+    </style>
+
+    <style name="TextView.DarkGray.ExtraLarge">
+        <item name="android:textSize">@dimen/default_text_size_extra_large</item>
+    </style>
+
+    <style name="TextView.Gray">
+        <item name="android:textColor">@color/gray</item>
+    </style>
+
+    <style name="TextView.Gray.ExtraSmall">
+        <item name="android:textSize">@dimen/default_text_size_extra_small</item>
+    </style>
+
+    <style name="TextView.Gray.Small">
+        <item name="android:textSize">@dimen/default_text_size_small</item>
+    </style>
+
+    <style name="TextView.Gray.Medium">
+        <item name="android:textSize">@dimen/default_text_size</item>
+    </style>
+
+    <style name="TextView.Gray.Large">
+        <item name="android:textSize">@dimen/default_text_size_large</item>
+    </style>
+
+    <style name="TextView.Gray.ExtraLarge">
+        <item name="android:textSize">@dimen/default_text_size_extra_large</item>
+    </style>
+
+    <style name="TextView.White">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="TextView.White.ExtraSmall">
+        <item name="android:textSize">@dimen/default_text_size_extra_small</item>
+    </style>
+
+    <style name="TextView.White.Small">
+        <item name="android:textSize">@dimen/default_text_size_small</item>
+    </style>
+
+    <style name="TextView.White.Medium">
+        <item name="android:textSize">@dimen/default_text_size</item>
+    </style>
+
+    <style name="TextView.White.Large">
+        <item name="android:textSize">@dimen/default_text_size_large</item>
+    </style>
+
+    <style name="TextView.White.ExtraLarge">
+        <item name="android:textSize">@dimen/default_text_size_extra_large</item>
+    </style>
+
+    <style name="Divider">
+        <item name="android:background">@color/extra_light_gray</item>
+    </style>
+
+    <style name="Divider.Horizontal">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/default_divider_size</item>
+    </style>
+
+    <style name="Divider.Vertical">
+        <item name="android:layout_width">@dimen/default_divider_size</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+</resources>

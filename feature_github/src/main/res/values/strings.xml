@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="repository">Repository</string>
+    <string name="gist">Gist</string>
+    <string name="follower">Follower</string>
+    <string name="following">Following</string>
+    <string name="recent_repositories">Recent Repository</string>
+</resources>

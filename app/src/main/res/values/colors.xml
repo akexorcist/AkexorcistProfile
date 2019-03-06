@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="transparent_black_20">#33000000</color>
+    <color name="transparent_black_40">#66000000</color>
+    <color name="transparent_black_60">#99000000</color>
+    <color name="transparent_black_80">#BB000000</color>
+    <color name="black">#333333</color>
+    <color name="dark_gray">#555555</color>
+    <color name="gray">#777777</color>
+    <color name="extra_light_gray">#EEEEEE</color>
+    <color name="white">#FFFFFF</color>
+    <color name="github_normal">#333333</color>
+    <color name="github_pressed">#222222</color>
+    <color name="blogger_normal">#F57D00</color>
+    <color name="blogger_pressed">#D56C00</color>
+    <color name="stackoverflow_normal">#F48024</color>
+    <color name="stackoverflow_pressed">#E2741D</color>
+</resources>

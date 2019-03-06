@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/default_margin_padding"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardBackgroundColor="@color/white">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:paddingTop="@dimen/default_margin_padding_large"
+        android:paddingBottom="@dimen/default_margin_padding_large">
+
+        <TextView
+            android:id="@+id/github_text_view_name"
+            style="@style/TextView.Black.Large"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_margin_padding_large"
+            android:layout_marginEnd="@dimen/default_margin_padding_large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Google Direction Library" />
+
+        <TextView
+            android:id="@+id/github_text_view_description"
+            style="@style/TextView.Gray.Small"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@id/github_text_view_name"
+            app:layout_constraintStart_toStartOf="@+id/github_text_view_name"
+            app:layout_constraintTop_toBottomOf="@id/github_text_view_name"
+            tools:text="Awesome Sample Project" />
+
+        <TextView
+            android:id="@+id/github_text_view_language"
+            style="@style/TextView.Gray.Small"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_margin_padding_large"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/github_text_view_license"
+            app:layout_constraintStart_toStartOf="@+id/github_text_view_description"
+            app:layout_constraintTop_toBottomOf="@id/github_text_view_description"
+            tools:text="Java" />
+
+        <TextView
+            android:id="@+id/github_text_view_license"
+            style="@style/TextView.Gray.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/default_margin_padding_large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/github_text_view_language"
+            tools:text="MIT" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

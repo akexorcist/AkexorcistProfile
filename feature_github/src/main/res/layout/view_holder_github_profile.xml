@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/default_margin_padding"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardBackgroundColor="@color/white">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:paddingTop="@dimen/default_margin_padding_large"
+        android:paddingBottom="@dimen/default_margin_padding_extra_large">
+
+        <ImageView
+            android:id="@+id/github_image_view_profile"
+            android:layout_width="@dimen/github_profile_size"
+            android:layout_height="@dimen/github_profile_size"
+            android:layout_marginStart="@dimen/default_margin_padding_large"
+            android:contentDescription="@null"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/github_text_view_name"
+            style="@style/TextView.Black.ExtraLarge"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_margin_padding_large"
+            android:layout_marginEnd="@dimen/default_margin_padding_large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/github_image_view_profile"
+            app:layout_constraintTop_toTopOf="@+id/github_image_view_profile"
+            tools:text="Akexorcist" />
+
+        <TextView
+            android:id="@+id/github_text_view_company"
+            style="@style/TextView.Gray.Small"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@id/github_text_view_name"
+            app:layout_constraintStart_toStartOf="@+id/github_text_view_name"
+            app:layout_constraintTop_toBottomOf="@id/github_text_view_name"
+            tools:text="Nextzy Technologies" />
+
+        <TextView
+            android:id="@+id/github_text_view_location"
+            style="@style/TextView.Gray.Small"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@id/github_text_view_company"
+            app:layout_constraintStart_toStartOf="@+id/github_text_view_company"
+            app:layout_constraintTop_toBottomOf="@id/github_text_view_company"
+            tools:text="Thailand" />
+
+        <View
+            android:id="@+id/github_divider_info"
+            style="@style/Divider.Horizontal"
+            android:layout_marginStart="@dimen/default_margin_padding_large"
+            android:layout_marginTop="@dimen/default_margin_padding_large"
+            android:layout_marginEnd="@dimen/default_margin_padding_large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/github_image_view_profile" />
+
+        <TextView
+            android:id="@+id/github_text_view_repository_count"
+            style="@style/TextView.DarkGray.ExtraLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_margin_padding_large"
+            app:layout_constraintEnd_toStartOf="@+id/github_text_view_gist_count"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/github_divider_info"
+            tools:text="100" />
+
+        <TextView
+            android:id="@+id/github_text_view_repository"
+            style="@style/TextView.Black.ExtraSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/repository"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/github_text_view_repository_count"
+            app:layout_constraintStart_toStartOf="@+id/github_text_view_repository_count"
+            app:layout_constraintTop_toBottomOf="@+id/github_text_view_repository_count" />
+
+        <TextView
+            android:id="@+id/github_text_view_gist_count"
+            style="@style/TextView.DarkGray.ExtraLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@+id/github_text_view_follower_count"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/github_text_view_repository_count"
+            app:layout_constraintTop_toTopOf="@id/github_text_view_repository_count"
+            tools:text="100" />
+
+        <TextView
+            android:id="@+id/github_text_view_gist"
+            style="@style/TextView.Black.ExtraSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/gist"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/github_text_view_gist_count"
+            app:layout_constraintStart_toStartOf="@+id/github_text_view_gist_count"
+            app:layout_constraintTop_toBottomOf="@+id/github_text_view_gist_count" />
+
+        <TextView
+            android:id="@+id/github_text_view_follower_count"
+            style="@style/TextView.DarkGray.ExtraLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@+id/github_text_view_following_count"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/github_text_view_gist_count"
+            app:layout_constraintTop_toTopOf="@id/github_text_view_repository_count"
+            tools:text="100" />
+
+        <TextView
+            android:id="@+id/github_text_view_follower"
+            style="@style/TextView.Black.ExtraSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/follower"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/github_text_view_follower_count"
+            app:layout_constraintStart_toStartOf="@+id/github_text_view_follower_count"
+            app:layout_constraintTop_toBottomOf="@+id/github_text_view_follower_count" />
+
+        <TextView
+            android:id="@+id/github_text_view_following_count"
+            style="@style/TextView.DarkGray.ExtraLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/github_text_view_follower_count"
+            app:layout_constraintTop_toTopOf="@id/github_text_view_repository_count"
+            tools:text="100" />
+
+        <TextView
+            android:id="@+id/github_text_view_following"
+            style="@style/TextView.Black.ExtraSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/following"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/github_text_view_following_count"
+            app:layout_constraintStart_toStartOf="@+id/github_text_view_following_count"
+            app:layout_constraintTop_toBottomOf="@+id/github_text_view_following_count" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

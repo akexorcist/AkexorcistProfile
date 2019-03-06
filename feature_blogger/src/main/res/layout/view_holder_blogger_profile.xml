@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/default_margin_padding"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardBackgroundColor="@color/white">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:paddingTop="@dimen/default_margin_padding_large"
+        android:paddingBottom="@dimen/default_margin_padding_large">
+
+        <ImageView
+            android:id="@+id/blogger_image_view_profile"
+            android:layout_width="@dimen/blogger_profile_size"
+            android:layout_height="@dimen/blogger_profile_size"
+            android:layout_marginStart="@dimen/default_margin_padding_large"
+            android:contentDescription="@null"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/blogger_text_view_name"
+            style="@style/TextView.Black.ExtraLarge"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_margin_padding_large"
+            android:layout_marginEnd="@dimen/default_margin_padding_large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/blogger_image_view_profile"
+            app:layout_constraintTop_toTopOf="@+id/blogger_image_view_profile"
+            tools:text="Akexorcist" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
