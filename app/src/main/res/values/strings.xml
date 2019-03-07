@@ -6,6 +6,7 @@
     <string name="empty_response">Nothing to show.</string>
     <string name="blogger">Blogger</string>
     <string name="github">Github</string>
+    <string name="stackoverflow">StackOverflow</string>
     <string name="profile_on_blogger">Profile on Blogger</string>
     <string name="profile_on_github">Profile on GitHub</string>
     <string name="profile_on_stackoverflow">Profile on StackOverflow</string>
@@ -16,4 +17,7 @@
     <string name="menu_stackoverflow">Profile on StackOverflow</string>
     <string name="title_dynamic_stackoverflow">StackOverflow</string>
     <string name="title_feature_stackoverflow">StackOverflow</string>
+
+    <string name="dynamic_module_success">Successful! %1$s module was installed.</string>
+    <string name="dynamic_module_failure">Can not install %1$s module. (%2$s)</string>
 </resources>
