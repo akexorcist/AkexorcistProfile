@@ -66,3 +66,5 @@ fastlane/readme.md
 feature_blogger/src/main/java/com/akexorcist/example/feature_blogger/api/BloggerConfig.kt
 feature_github/src/main/java/com/akexorcist/example/feature_github/api/GithubConfig.kt
 feature_stackoverflow/src/main/java/com/akexorcist/example/feature_stackoverflow/api/StackOverflowConfig.kt
+app/release
+*.pepk
