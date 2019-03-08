@@ -19,5 +19,6 @@
     <string name="title_feature_stackoverflow">StackOverflow</string>
 
     <string name="dynamic_module_success">Successful! %1$s module was installed.</string>
-    <string name="dynamic_module_failure">Can not install %1$s module. (%2$s)</string>
+    <string name="dynamic_module_failure">Can not install %1$s module. (error code : %2$d)</string>
+    <string name="module_installing">Please waiting for module installing.</string>
 </resources>

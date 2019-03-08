@@ -12,8 +12,8 @@ android {
         applicationId "com.akexorcist.example.akexorcistprofile"
         minSdkVersion 19
         targetSdkVersion 28
-        versionCode 10000
-        versionName "1.0.0"
+        versionCode 10007
+        versionName "1.0.7"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

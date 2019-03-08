@@ -1,11 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:dist="http://schemas.android.com/apk/distribution"
-    package="com.akexorcist.example.feature_stackoverflow">
+    package="com.akexorcist.example.feature_stackoverflow"
+    split="feature_stackoverflow">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <dist:module
-        dist:instant="false"
         dist:onDemand="true"
         dist:title="@string/title_feature_stackoverflow">
         <dist:fusing dist:include="true" />

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:dist="http://schemas.android.com/apk/distribution"
-    package="com.akexorcist.example.feature_github">
+    package="com.akexorcist.example.feature_github"
+    split="feature_github">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <dist:module
-        dist:instant="false"
         dist:onDemand="true"
         dist:title="@string/title_feature_github">
         <dist:fusing dist:include="true" />

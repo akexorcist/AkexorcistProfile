@@ -18,4 +18,5 @@
     <color name="blogger_pressed">#D56C00</color>
     <color name="stackoverflow_normal">#F48024</color>
     <color name="stackoverflow_pressed">#E2741D</color>
+    <color name="ic_launcher_background">#3D93D0</color>
 </resources>
