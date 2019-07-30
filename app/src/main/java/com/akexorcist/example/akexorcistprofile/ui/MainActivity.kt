@@ -4,7 +4,6 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.ProgressBar
 import android.widget.Toast
@@ -32,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         const val PACKAGE_GITHUB = "com.akexorcist.example.feature_github.ui.github.GithubActivity"
         const val PACKAGE_BLOGGER = "com.akexorcist.example.feature_blogger.ui.blogger.BloggerActivity"
         const val PACKAGE_STACKOVERFLOW =
-                "com.akexorcist.example.feature_stackoverflow.ui.stackoverflow.StackOverflowActivity"
+            "com.akexorcist.example.feature_stackoverflow.ui.stackoverflow.StackOverflowActivity"
     }
 
     private val manager: SplitInstallManager by lazy<SplitInstallManager> {
@@ -45,35 +44,35 @@ class MainActivity : AppCompatActivity() {
 
         buttonGithub.setOnClickListener {
             requestDynamicFeature(
-                    MODULE_GITHUB,
-                    onInstalling = {
-                        showGithubModuleLoading()
-                    },
-                    onInstalled = {
-                        openActivity(PACKAGE_GITHUB)
-                    })
+                MODULE_GITHUB,
+                onInstalling = {
+                    showGithubModuleLoading()
+                },
+                onInstalled = {
+                    openActivity(PACKAGE_GITHUB)
+                })
         }
 
         buttonBlogger.setOnClickListener {
             requestDynamicFeature(
-                    MODULE_BLOGGER,
-                    onInstalling = {
-                        showBloggerModuleLoading()
-                    },
-                    onInstalled = {
-                        openActivity(PACKAGE_BLOGGER)
-                    })
+                MODULE_BLOGGER,
+                onInstalling = {
+                    showBloggerModuleLoading()
+                },
+                onInstalled = {
+                    openActivity(PACKAGE_BLOGGER)
+                })
         }
 
         buttonStackOverflow.setOnClickListener {
             requestDynamicFeature(
-                    MODULE_STACKOVERFLOW,
-                    onInstalling = {
-                        showStackoverflowModuleLoading()
-                    },
-                    onInstalled = {
-                        openActivity(PACKAGE_STACKOVERFLOW)
-                    })
+                MODULE_STACKOVERFLOW,
+                onInstalling = {
+                    showStackoverflowModuleLoading()
+                },
+                onInstalled = {
+                    openActivity(PACKAGE_STACKOVERFLOW)
+                })
         }
 
         manager.registerListener(listener)
@@ -88,9 +87,9 @@ class MainActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == REQUEST_CODE_INSTALL_MODULE) {
             if (resultCode == Activity.RESULT_OK) {
-                Log.e("Confirmation Prompt", "Install Module OK ${data.toString()}")
+                // TODO Do something when user confirm to install the module
             } else if (resultCode == Activity.RESULT_CANCELED) {
-                Log.e("Confirmation Prompt", "Install Module Canceled ${data.toString()}")
+                // TODO Do something when user cancel to install the module
             }
         }
     }
@@ -99,16 +98,15 @@ class MainActivity : AppCompatActivity() {
         when (state.status()) {
             SplitInstallSessionStatus.REQUIRES_USER_CONFIRMATION -> {
                 manager.startConfirmationDialogForResult(
-                        state,
-                        this@MainActivity,
-                        REQUEST_CODE_INSTALL_MODULE
+                    state,
+                    this@MainActivity,
+                    REQUEST_CODE_INSTALL_MODULE
                 )
             }
             SplitInstallSessionStatus.PENDING -> {
                 updateModuleLoadingState(state.moduleNames())
             }
             SplitInstallSessionStatus.INSTALLING -> {
-
                 updateModuleLoadingState(state.moduleNames())
             }
             SplitInstallSessionStatus.DOWNLOADING -> {
@@ -121,11 +119,22 @@ class MainActivity : AppCompatActivity() {
                 val modules = state.moduleNames().joinToString(transform = { getFeatureNameByModuleName(it) })
                 onModuleInstallationSuccess(modules)
                 updateModuleContentState(state.moduleNames())
+                openFirstModule(state.moduleNames().getOrNull(0))
             }
             SplitInstallSessionStatus.FAILED -> {
                 val modules = state.moduleNames().joinToString(transform = { getFeatureNameByModuleName(it) })
                 onModuleInstallationFailure(modules, state.errorCode())
                 updateModuleContentState(state.moduleNames())
+            }
+        }
+    }
+
+    private fun openFirstModule(module: String?) {
+        module?.let {
+            when (it) {
+                MODULE_GITHUB -> openActivity(PACKAGE_GITHUB)
+                MODULE_BLOGGER -> openActivity(PACKAGE_BLOGGER)
+                MODULE_STACKOVERFLOW -> openActivity(PACKAGE_STACKOVERFLOW)
             }
         }
     }
@@ -158,17 +167,17 @@ class MainActivity : AppCompatActivity() {
             SplitInstallHelper.updateAppInfo(applicationContext)
         }
         Toast.makeText(
-                this,
-                getString(R.string.dynamic_module_success, module),
-                Toast.LENGTH_SHORT
+            this,
+            getString(R.string.dynamic_module_success, module),
+            Toast.LENGTH_SHORT
         ).show()
     }
 
     private fun onModuleInstallationFailure(module: String, errorCode: Int) {
         Toast.makeText(
-                this,
-                getString(R.string.dynamic_module_failure, module, errorCode),
-                Toast.LENGTH_SHORT
+            this,
+            getString(R.string.dynamic_module_failure, module, errorCode),
+            Toast.LENGTH_SHORT
         ).show()
     }
 
