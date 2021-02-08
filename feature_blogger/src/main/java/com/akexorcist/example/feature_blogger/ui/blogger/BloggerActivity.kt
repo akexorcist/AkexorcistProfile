@@ -9,24 +9,23 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.transition.TransitionManager
 import com.akexorcist.example.feature_blogger.api.BloggerConfig
 import com.akexorcist.example.feature_blogger.api.BloggerManager
+import com.akexorcist.example.feature_blogger.databinding.ActivityBloggerBinding
 import com.akexorcist.example.feature_blogger.util.converter.BloggerConverter
 import com.akexorcist.example.feature_blogger.vo.api.PostResponse
 import com.akexorcist.example.feature_blogger.vo.ui.Post
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import kotlinx.android.synthetic.main.activity_blogger.blogger_layout_root as layoutRoot
-import kotlinx.android.synthetic.main.activity_blogger.blogger_progress_bar_content_loading as progressBarContentLoading
-import kotlinx.android.synthetic.main.activity_blogger.blogger_recycler_view_info as recyclerViewProfile
-import kotlinx.android.synthetic.main.activity_blogger.blogger_text_view_empty_response as textViewEmptyResponse
-import kotlinx.android.synthetic.main.activity_blogger.blogger_text_view_service_error as textViewServiceError
-
 
 class BloggerActivity : AppCompatActivity() {
+    private val binding: ActivityBloggerBinding by lazy {
+        ActivityBloggerBinding.inflate(layoutInflater)
+    }
     private val adapter = BloggerInfoAdapter()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(com.akexorcist.example.feature_blogger.R.layout.activity_blogger)
+        setContentView(binding.root)
 
         initRecyclerView()
         getPostList()
@@ -35,8 +34,8 @@ class BloggerActivity : AppCompatActivity() {
 
     private fun initRecyclerView() {
         adapter.setOnUrlClickListener { url -> openExternalWeb(url) }
-        recyclerViewProfile.adapter = adapter
-        recyclerViewProfile.layoutManager = LinearLayoutManager(this)
+        binding.bloggerRecyclerViewInfo.adapter = adapter
+        binding.bloggerRecyclerViewInfo.layoutManager = LinearLayoutManager(this)
     }
 
     private fun getPostList() {
@@ -74,35 +73,35 @@ class BloggerActivity : AppCompatActivity() {
     }
 
     private fun showLoading() {
-        progressBarContentLoading.show()
-        recyclerViewProfile.visibility = View.INVISIBLE
-        textViewEmptyResponse.visibility = View.INVISIBLE
-        textViewServiceError.visibility = View.INVISIBLE
-        TransitionManager.beginDelayedTransition(layoutRoot)
+        binding.bloggerProgressBarContentLoading.show()
+        binding.bloggerRecyclerViewInfo.visibility = View.INVISIBLE
+        binding.bloggerTextViewEmptyResponse.visibility = View.INVISIBLE
+        binding.bloggerTextViewServiceError.visibility = View.INVISIBLE
+        TransitionManager.beginDelayedTransition(binding.root)
     }
 
     private fun showSuccess() {
-        progressBarContentLoading.hide()
-        recyclerViewProfile.visibility = View.VISIBLE
-        textViewEmptyResponse.visibility = View.INVISIBLE
-        textViewServiceError.visibility = View.INVISIBLE
-        TransitionManager.beginDelayedTransition(layoutRoot)
+        binding.bloggerProgressBarContentLoading.hide()
+        binding.bloggerRecyclerViewInfo.visibility = View.VISIBLE
+        binding.bloggerTextViewEmptyResponse.visibility = View.INVISIBLE
+        binding.bloggerTextViewServiceError.visibility = View.INVISIBLE
+        TransitionManager.beginDelayedTransition(binding.root)
     }
 
     private fun showEmpty() {
-        progressBarContentLoading.hide()
-        recyclerViewProfile.visibility = View.INVISIBLE
-        textViewEmptyResponse.visibility = View.VISIBLE
-        textViewServiceError.visibility = View.INVISIBLE
-        TransitionManager.beginDelayedTransition(layoutRoot)
+        binding.bloggerProgressBarContentLoading.hide()
+        binding.bloggerRecyclerViewInfo.visibility = View.INVISIBLE
+        binding.bloggerTextViewEmptyResponse.visibility = View.VISIBLE
+        binding.bloggerTextViewServiceError.visibility = View.INVISIBLE
+        TransitionManager.beginDelayedTransition(binding.root)
     }
 
     private fun showError() {
-        progressBarContentLoading.hide()
-        recyclerViewProfile.visibility = View.INVISIBLE
-        textViewEmptyResponse.visibility = View.INVISIBLE
-        textViewServiceError.visibility = View.VISIBLE
-        TransitionManager.beginDelayedTransition(layoutRoot)
+        binding.bloggerProgressBarContentLoading.hide()
+        binding.bloggerRecyclerViewInfo.visibility = View.INVISIBLE
+        binding.bloggerTextViewEmptyResponse.visibility = View.INVISIBLE
+        binding.bloggerTextViewServiceError.visibility = View.VISIBLE
+        TransitionManager.beginDelayedTransition(binding.root)
     }
 
     private fun openExternalWeb(url: String) {

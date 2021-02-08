@@ -2,67 +2,60 @@ package com.akexorcist.example.feature_github.ui.github
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
+import com.akexorcist.example.feature_github.databinding.ViewHolderGithubProfileBinding
 import com.bumptech.glide.Glide
-import kotlinx.android.extensions.LayoutContainer
-import kotlinx.android.synthetic.main.view_holder_github_profile.github_image_view_profile as imageViewProfile
-import kotlinx.android.synthetic.main.view_holder_github_profile.github_text_view_company as textViewCompany
-import kotlinx.android.synthetic.main.view_holder_github_profile.github_text_view_follower_count as textViewFollowerCount
-import kotlinx.android.synthetic.main.view_holder_github_profile.github_text_view_following_count as textViewFollowingCount
-import kotlinx.android.synthetic.main.view_holder_github_profile.github_text_view_gist_count as textViewGistCount
-import kotlinx.android.synthetic.main.view_holder_github_profile.github_text_view_location as textViewLocation
-import kotlinx.android.synthetic.main.view_holder_github_profile.github_text_view_name as textViewName
-import kotlinx.android.synthetic.main.view_holder_github_profile.github_text_view_repository_count as textViewRepoCount
 
-class ProfileViewHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView),
-    LayoutContainer {
+class ProfileViewHolder(
+    private val binding: ViewHolderGithubProfileBinding
+) : RecyclerView.ViewHolder(binding.root) {
     fun setProfileImage(url: String?) {
         url?.let {
-            Glide.with(itemView.context).load(url).into(imageViewProfile)
+            Glide.with(itemView.context).load(url).into(binding.githubImageViewProfile)
         }
     }
 
     fun setName(name: String?) {
         name?.let {
-            textViewName.text = name
+            binding.githubTextViewName.text = name
         } ?: run {
-            textViewName.text = ""
+            binding.githubTextViewName.text = ""
         }
     }
 
     fun setCompany(company: String?) {
         company?.let {
-            textViewCompany.text = company
-            textViewCompany.visibility = View.VISIBLE
+            binding.githubTextViewCompany.text = company
+            binding.githubTextViewCompany.visibility = View.VISIBLE
         } ?: run {
-            textViewCompany.text = ""
-            textViewCompany.visibility = View.INVISIBLE
+            binding.githubTextViewCompany.text = ""
+            binding.githubTextViewCompany.visibility = View.INVISIBLE
         }
     }
 
     fun setLocation(location: String?) {
         location?.let {
-            textViewLocation.text = location
-            textViewLocation.visibility = View.VISIBLE
+            binding.githubTextViewLocation.text = location
+            binding.githubTextViewLocation.visibility = View.VISIBLE
         } ?: run {
-            textViewLocation.text = ""
-            textViewLocation.visibility = View.INVISIBLE
+            binding.githubTextViewLocation.text = ""
+            binding.githubTextViewLocation.visibility = View.INVISIBLE
         }
     }
 
     fun setRepoCount(count: Int) {
-        textViewRepoCount.text = count.toString()
+        binding.githubTextViewRepositoryCount.text = count.toString()
     }
 
     fun setGistCount(count: Int) {
-        textViewGistCount.text = count.toString()
+        binding.githubTextViewGistCount.text = count.toString()
     }
 
     fun setFollowerCount(count: Int) {
-        textViewFollowerCount.text = count.toString()
+        binding.githubTextViewFollowerCount.text = count.toString()
     }
 
     fun setFollowingCount(count: Int) {
-        textViewFollowingCount.text = count.toString()
+        binding.githubTextViewFollowingCount.text = count.toString()
     }
 
     fun setOnClickListener(listener: () -> Unit) {

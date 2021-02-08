@@ -3,7 +3,9 @@ package com.akexorcist.example.feature_stackoverflow.ui.stackoverflow
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.akexorcist.example.feature_stackoverflow.R
+import com.akexorcist.example.feature_stackoverflow.databinding.ViewHolderStackoverflowActivityBinding
+import com.akexorcist.example.feature_stackoverflow.databinding.ViewHolderStackoverflowProfileBinding
+import com.akexorcist.example.feature_stackoverflow.databinding.ViewHolderStackoverflowTitleBinding
 import com.akexorcist.example.feature_stackoverflow.vo.ui.Activity
 import com.akexorcist.example.feature_stackoverflow.vo.ui.Profile
 
@@ -22,24 +24,18 @@ class StackOverflowInfoAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder =
         when (viewType) {
             TYPE_PROFILE -> ProfileViewHolder(
-                LayoutInflater.from(parent.context).inflate(
-                    R.layout.view_holder_stackoverflow_profile,
-                    parent,
-                    false
+                ViewHolderStackoverflowProfileBinding.inflate(
+                    LayoutInflater.from(parent.context), parent, false
                 )
             )
             TYPE_TITLE -> TitleViewHolder(
-                LayoutInflater.from(parent.context).inflate(
-                    R.layout.view_holder_stackoverflow_title,
-                    parent,
-                    false
+                ViewHolderStackoverflowTitleBinding.inflate(
+                    LayoutInflater.from(parent.context), parent, false
                 )
             )
             TYPE_ACTIVITY -> ActivityViewHolder(
-                LayoutInflater.from(parent.context).inflate(
-                    R.layout.view_holder_stackoverflow_activity,
-                    parent,
-                    false
+                ViewHolderStackoverflowActivityBinding.inflate(
+                    LayoutInflater.from(parent.context), parent, false
                 )
             )
             else -> throw NullPointerException("View type ($viewType) not found")
@@ -102,7 +98,7 @@ class StackOverflowInfoAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>()
     }
 
     private fun setupActivityViewHolder(holder: ActivityViewHolder, item: Activity) {
-        holder.setTitle(if (item.title != null) item.title else item.detail)
+        holder.setTitle(item.title ?: item.detail)
         holder.setType(item.timelineType)
         holder.setDate(item.date)
     }

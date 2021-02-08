@@ -1,8 +1,8 @@
 package com.akexorcist.example.feature_stackoverflow.ui.stackoverflow
 
-import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.extensions.LayoutContainer
+import com.akexorcist.example.feature_stackoverflow.databinding.ViewHolderStackoverflowTitleBinding
 
-class TitleViewHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView),
-    LayoutContainer
+class TitleViewHolder(
+    binding: ViewHolderStackoverflowTitleBinding
+) : RecyclerView.ViewHolder(binding.root)

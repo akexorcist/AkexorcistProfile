@@ -7,26 +7,25 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.transition.TransitionManager
-import com.akexorcist.example.feature_github.R
 import com.akexorcist.example.feature_github.api.GithubConfig
 import com.akexorcist.example.feature_github.api.GithubManager
+import com.akexorcist.example.feature_github.databinding.ActivityGithubBinding
 import com.akexorcist.example.feature_github.util.converter.GithubConverter
 import com.akexorcist.example.feature_github.vo.ui.Profile
 import com.akexorcist.example.feature_github.vo.ui.Repo
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import kotlinx.android.synthetic.main.activity_github.github_layout_root as layoutRoot
-import kotlinx.android.synthetic.main.activity_github.github_progress_bar_content_loading as progressBarContentLoading
-import kotlinx.android.synthetic.main.activity_github.github_recycler_view_info as recyclerViewProfile
-import kotlinx.android.synthetic.main.activity_github.github_text_view_empty_response as textViewEmptyResponse
-import kotlinx.android.synthetic.main.activity_github.github_text_view_service_error as textViewServiceError
 
 class GithubActivity : AppCompatActivity() {
+    private val binding: ActivityGithubBinding by lazy {
+        ActivityGithubBinding.inflate(layoutInflater)
+    }
     private val adapter = GithubInfoAdapter()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_github)
+        setContentView(binding.root)
 
         initRecyclerView()
         getProfile()
@@ -35,8 +34,8 @@ class GithubActivity : AppCompatActivity() {
 
     private fun initRecyclerView() {
         adapter.setOnUrlClickListener { url -> openExternalWeb(url) }
-        recyclerViewProfile.adapter = adapter
-        recyclerViewProfile.layoutManager = LinearLayoutManager(this)
+        binding.githubRecyclerViewInfo.adapter = adapter
+        binding.githubRecyclerViewInfo.layoutManager = LinearLayoutManager(this)
     }
 
     private fun getProfile() {
@@ -93,35 +92,35 @@ class GithubActivity : AppCompatActivity() {
     }
 
     private fun showLoading() {
-        progressBarContentLoading.show()
-        recyclerViewProfile.visibility = View.INVISIBLE
-        textViewEmptyResponse.visibility = View.INVISIBLE
-        textViewServiceError.visibility = View.INVISIBLE
-        TransitionManager.beginDelayedTransition(layoutRoot)
+        binding.githubProgressBarContentLoading.show()
+        binding.githubRecyclerViewInfo.visibility = View.INVISIBLE
+        binding.githubTextViewEmptyResponse.visibility = View.INVISIBLE
+        binding.githubTextViewServiceError.visibility = View.INVISIBLE
+        TransitionManager.beginDelayedTransition(binding.root)
     }
 
     private fun showSuccess() {
-        progressBarContentLoading.hide()
-        recyclerViewProfile.visibility = View.VISIBLE
-        textViewEmptyResponse.visibility = View.INVISIBLE
-        textViewServiceError.visibility = View.INVISIBLE
-        TransitionManager.beginDelayedTransition(layoutRoot)
+        binding.githubProgressBarContentLoading.hide()
+        binding.githubRecyclerViewInfo.visibility = View.VISIBLE
+        binding.githubTextViewEmptyResponse.visibility = View.INVISIBLE
+        binding.githubTextViewServiceError.visibility = View.INVISIBLE
+        TransitionManager.beginDelayedTransition(binding.root)
     }
 
     private fun showEmpty() {
-        progressBarContentLoading.hide()
-        recyclerViewProfile.visibility = View.INVISIBLE
-        textViewEmptyResponse.visibility = View.VISIBLE
-        textViewServiceError.visibility = View.INVISIBLE
-        TransitionManager.beginDelayedTransition(layoutRoot)
+        binding.githubProgressBarContentLoading.hide()
+        binding.githubRecyclerViewInfo.visibility = View.INVISIBLE
+        binding.githubTextViewEmptyResponse.visibility = View.VISIBLE
+        binding.githubTextViewServiceError.visibility = View.INVISIBLE
+        TransitionManager.beginDelayedTransition(binding.root)
     }
 
     private fun showError() {
-        progressBarContentLoading.hide()
-        recyclerViewProfile.visibility = View.INVISIBLE
-        textViewEmptyResponse.visibility = View.INVISIBLE
-        textViewServiceError.visibility = View.VISIBLE
-        TransitionManager.beginDelayedTransition(layoutRoot)
+        binding.githubProgressBarContentLoading.hide()
+        binding.githubRecyclerViewInfo.visibility = View.INVISIBLE
+        binding.githubTextViewEmptyResponse.visibility = View.INVISIBLE
+        binding.githubTextViewServiceError.visibility = View.VISIBLE
+        TransitionManager.beginDelayedTransition(binding.root)
     }
 
     private fun openExternalWeb(url: String) {

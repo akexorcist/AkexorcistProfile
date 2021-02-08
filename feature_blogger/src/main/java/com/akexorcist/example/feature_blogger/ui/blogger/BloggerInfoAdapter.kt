@@ -3,7 +3,9 @@ package com.akexorcist.example.feature_blogger.ui.blogger
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.akexorcist.example.feature_blogger.R
+import com.akexorcist.example.feature_blogger.databinding.ViewHolderBloggerPostBinding
+import com.akexorcist.example.feature_blogger.databinding.ViewHolderBloggerProfileBinding
+import com.akexorcist.example.feature_blogger.databinding.ViewHolderBloggerTitleBinding
 import com.akexorcist.example.feature_blogger.vo.ui.Post
 
 class BloggerInfoAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -19,24 +21,18 @@ class BloggerInfoAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder =
         when (viewType) {
             TYPE_PROFILE -> ProfileViewHolder(
-                LayoutInflater.from(parent.context).inflate(
-                    R.layout.view_holder_blogger_profile,
-                    parent,
-                    false
+                ViewHolderBloggerProfileBinding.inflate(
+                    LayoutInflater.from(parent.context), parent, false
                 )
             )
             TYPE_TITLE -> TitleViewHolder(
-                LayoutInflater.from(parent.context).inflate(
-                    R.layout.view_holder_blogger_title,
-                    parent,
-                    false
+                ViewHolderBloggerTitleBinding.inflate(
+                    LayoutInflater.from(parent.context), parent, false
                 )
             )
             TYPE_POST -> PostViewHolder(
-                LayoutInflater.from(parent.context).inflate(
-                    R.layout.view_holder_blogger_post,
-                    parent,
-                    false
+                ViewHolderBloggerPostBinding.inflate(
+                    LayoutInflater.from(parent.context), parent, false
                 )
             )
             else -> throw NullPointerException("View type ($viewType) not found")

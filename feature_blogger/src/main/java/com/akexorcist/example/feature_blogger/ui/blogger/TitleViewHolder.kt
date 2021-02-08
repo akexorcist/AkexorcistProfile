@@ -1,8 +1,8 @@
 package com.akexorcist.example.feature_blogger.ui.blogger
 
-import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.extensions.LayoutContainer
+import com.akexorcist.example.feature_blogger.databinding.ViewHolderBloggerTitleBinding
 
-class TitleViewHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView),
-    LayoutContainer
+class TitleViewHolder(
+    binding: ViewHolderBloggerTitleBinding
+) : RecyclerView.ViewHolder(binding.root)

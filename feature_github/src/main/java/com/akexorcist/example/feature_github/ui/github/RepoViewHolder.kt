@@ -2,47 +2,44 @@ package com.akexorcist.example.feature_github.ui.github
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.extensions.LayoutContainer
-import kotlinx.android.synthetic.main.view_holder_github_repo.github_text_view_description as textViewDescription
-import kotlinx.android.synthetic.main.view_holder_github_repo.github_text_view_language as textViewLanguage
-import kotlinx.android.synthetic.main.view_holder_github_repo.github_text_view_license as textViewLicense
-import kotlinx.android.synthetic.main.view_holder_github_repo.github_text_view_name as textViewName
+import com.akexorcist.example.feature_github.databinding.ViewHolderGithubRepoBinding
 
-class RepoViewHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView),
-    LayoutContainer {
+class RepoViewHolder(
+    private val binding: ViewHolderGithubRepoBinding
+) : RecyclerView.ViewHolder(binding.root) {
     fun setName(name: String?) {
         name?.let {
-            textViewName.text = it
+            binding.githubTextViewName.text = it
         } ?: run {
-            textViewName.text = ""
+            binding.githubTextViewName.text = ""
         }
     }
 
     fun setDescription(description: String?) {
         description?.let {
-            textViewDescription.text = it
+            binding.githubTextViewDescription.text = it
         } ?: run {
-            textViewDescription.text = ""
+            binding.githubTextViewDescription.text = ""
         }
     }
 
     fun setLanguage(language: String?) {
         language?.let {
-            textViewLanguage.text = it
-            textViewLanguage.visibility = View.VISIBLE
+            binding.githubTextViewLanguage.text = it
+            binding.githubTextViewLanguage.visibility = View.VISIBLE
         } ?: run {
-            textViewLanguage.text = ""
-            textViewLanguage.visibility = View.GONE
+            binding.githubTextViewLanguage.text = ""
+            binding.githubTextViewLanguage.visibility = View.GONE
         }
     }
 
     fun setLicense(license: String?) {
         license?.let {
-            textViewLicense.text = it
-            textViewLicense.visibility = View.VISIBLE
+            binding.githubTextViewLicense.text = it
+            binding.githubTextViewLicense.visibility = View.VISIBLE
         } ?: run {
-            textViewLicense.text = ""
-            textViewLicense.visibility = View.GONE
+            binding.githubTextViewLicense.text = ""
+            binding.githubTextViewLicense.visibility = View.GONE
         }
     }
 

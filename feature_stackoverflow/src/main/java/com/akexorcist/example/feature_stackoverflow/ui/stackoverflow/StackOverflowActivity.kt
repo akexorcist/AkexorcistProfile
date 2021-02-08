@@ -7,9 +7,9 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.transition.TransitionManager
-import com.akexorcist.example.feature_stackoverflow.R
 import com.akexorcist.example.feature_stackoverflow.api.StackOverflowConfig
 import com.akexorcist.example.feature_stackoverflow.api.StackOverflowManager
+import com.akexorcist.example.feature_stackoverflow.databinding.ActivityStackoverflowBinding
 import com.akexorcist.example.feature_stackoverflow.util.converter.StackOverflowConverter
 import com.akexorcist.example.feature_stackoverflow.vo.api.ProfileResponse
 import com.akexorcist.example.feature_stackoverflow.vo.api.Timeline
@@ -18,17 +18,15 @@ import com.akexorcist.example.feature_stackoverflow.vo.ui.Profile
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import kotlinx.android.synthetic.main.activity_stackoverflow.stackoverflow_layout_root as layoutRoot
-import kotlinx.android.synthetic.main.activity_stackoverflow.stackoverflow_progress_bar_content_loading as progressBarContentLoading
-import kotlinx.android.synthetic.main.activity_stackoverflow.stackoverflow_recycler_view_info as recyclerViewProfile
-import kotlinx.android.synthetic.main.activity_stackoverflow.stackoverflow_text_view_empty_response as textViewEmptyResponse
-import kotlinx.android.synthetic.main.activity_stackoverflow.stackoverflow_text_view_service_error as textViewServiceError
 
 class StackOverflowActivity : AppCompatActivity() {
+    private val binding: ActivityStackoverflowBinding by lazy {
+        ActivityStackoverflowBinding.inflate(layoutInflater)
+    }
     private val adapter = StackOverflowInfoAdapter()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_stackoverflow)
+        setContentView(binding.root)
 
         initRecyclerView()
         getProfile()
@@ -37,8 +35,8 @@ class StackOverflowActivity : AppCompatActivity() {
 
     private fun initRecyclerView() {
         adapter.setOnUrlClickListener { url -> openExternalWeb(url) }
-        recyclerViewProfile.adapter = adapter
-        recyclerViewProfile.layoutManager = LinearLayoutManager(this)
+        binding.stackoverflowRecyclerViewInfo.adapter = adapter
+        binding.stackoverflowRecyclerViewInfo.layoutManager = LinearLayoutManager(this)
     }
 
     private fun getProfile() {
@@ -95,35 +93,35 @@ class StackOverflowActivity : AppCompatActivity() {
     }
 
     private fun showLoading() {
-        progressBarContentLoading.show()
-        recyclerViewProfile.visibility = View.INVISIBLE
-        textViewEmptyResponse.visibility = View.INVISIBLE
-        textViewServiceError.visibility = View.INVISIBLE
-        TransitionManager.beginDelayedTransition(layoutRoot)
+        binding.stackoverflowProgressBarContentLoading.show()
+        binding.stackoverflowRecyclerViewInfo.visibility = View.INVISIBLE
+        binding.stackoverflowTextViewEmptyResponse.visibility = View.INVISIBLE
+        binding.stackoverflowTextViewServiceError.visibility = View.INVISIBLE
+        TransitionManager.beginDelayedTransition(binding.root)
     }
 
     private fun showSuccess() {
-        progressBarContentLoading.hide()
-        recyclerViewProfile.visibility = View.VISIBLE
-        textViewEmptyResponse.visibility = View.INVISIBLE
-        textViewServiceError.visibility = View.INVISIBLE
-        TransitionManager.beginDelayedTransition(layoutRoot)
+        binding.stackoverflowProgressBarContentLoading.hide()
+        binding.stackoverflowRecyclerViewInfo.visibility = View.VISIBLE
+        binding.stackoverflowTextViewEmptyResponse.visibility = View.INVISIBLE
+        binding.stackoverflowTextViewServiceError.visibility = View.INVISIBLE
+        TransitionManager.beginDelayedTransition(binding.root)
     }
 
     private fun showEmpty() {
-        progressBarContentLoading.hide()
-        recyclerViewProfile.visibility = View.INVISIBLE
-        textViewEmptyResponse.visibility = View.VISIBLE
-        textViewServiceError.visibility = View.INVISIBLE
-        TransitionManager.beginDelayedTransition(layoutRoot)
+        binding.stackoverflowProgressBarContentLoading.hide()
+        binding.stackoverflowRecyclerViewInfo.visibility = View.INVISIBLE
+        binding.stackoverflowTextViewEmptyResponse.visibility = View.VISIBLE
+        binding.stackoverflowTextViewServiceError.visibility = View.INVISIBLE
+        TransitionManager.beginDelayedTransition(binding.root)
     }
 
     private fun showError() {
-        progressBarContentLoading.hide()
-        recyclerViewProfile.visibility = View.INVISIBLE
-        textViewEmptyResponse.visibility = View.INVISIBLE
-        textViewServiceError.visibility = View.VISIBLE
-        TransitionManager.beginDelayedTransition(layoutRoot)
+        binding.stackoverflowProgressBarContentLoading.hide()
+        binding.stackoverflowRecyclerViewInfo.visibility = View.INVISIBLE
+        binding.stackoverflowTextViewEmptyResponse.visibility = View.INVISIBLE
+        binding.stackoverflowTextViewServiceError.visibility = View.VISIBLE
+        TransitionManager.beginDelayedTransition(binding.root)
     }
 
     private fun openExternalWeb(url: String) {

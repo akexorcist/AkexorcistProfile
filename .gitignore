@@ -68,3 +68,4 @@ feature_github/src/main/java/com/akexorcist/example/feature_github/api/GithubCon
 feature_stackoverflow/src/main/java/com/akexorcist/example/feature_stackoverflow/api/StackOverflowConfig.kt
 app/release
 *.pepk
+.idea

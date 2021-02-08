@@ -4,31 +4,30 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.akexorcist.example.feature_stackoverflow.R
 import com.akexorcist.example.feature_stackoverflow.constant.TimelineType
+import com.akexorcist.example.feature_stackoverflow.databinding.ViewHolderStackoverflowActivityBinding
 import kotlinx.android.extensions.LayoutContainer
 import org.threeten.bp.Instant
 import org.threeten.bp.ZoneId
 import org.threeten.bp.format.DateTimeFormatter
 import org.threeten.bp.format.FormatStyle
 import java.util.*
-import kotlinx.android.synthetic.main.view_holder_stackoverflow_activity.stackoverflow_text_view_date as textViewDate
-import kotlinx.android.synthetic.main.view_holder_stackoverflow_activity.stackoverflow_text_view_title as textViewTitle
-import kotlinx.android.synthetic.main.view_holder_stackoverflow_activity.stackoverflow_text_view_type as textViewType
 
-class ActivityViewHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView),
-    LayoutContainer {
+class ActivityViewHolder(
+    private val binding: ViewHolderStackoverflowActivityBinding
+) : RecyclerView.ViewHolder(binding.root) {
     fun setType(type: String?) {
         type?.let {
-            textViewType.text = getType(it)
+            binding.stackoverflowTextViewType.text = getType(it)
         } ?: run {
-            textViewType.text = ""
+            binding.stackoverflowTextViewType.text = ""
         }
     }
 
     fun setTitle(title: String?) {
         title?.let {
-            textViewTitle.text = it
+            binding.stackoverflowTextViewTitle.text = it
         } ?: run {
-            textViewTitle.text = ""
+            binding.stackoverflowTextViewTitle.text = ""
         }
     }
 
@@ -36,7 +35,7 @@ class ActivityViewHolder(override val containerView: View) : RecyclerView.ViewHo
         val formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.LONG)
             .withLocale(Locale.getDefault())
             .withZone(ZoneId.systemDefault())
-        textViewDate.text = formatter.format(Instant.ofEpochSecond(date))
+        binding.stackoverflowTextViewDate.text = formatter.format(Instant.ofEpochSecond(date))
     }
 
     private fun getType(type: String): String = when (type) {

@@ -4,6 +4,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.akexorcist.example.feature_github.R
+import com.akexorcist.example.feature_github.databinding.ViewHolderGithubProfileBinding
+import com.akexorcist.example.feature_github.databinding.ViewHolderGithubRepoBinding
+import com.akexorcist.example.feature_github.databinding.ViewHolderGithubTitleBinding
 import com.akexorcist.example.feature_github.vo.ui.Profile
 import com.akexorcist.example.feature_github.vo.ui.Repo
 
@@ -21,24 +24,18 @@ class GithubInfoAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder =
         when (viewType) {
             TYPE_PROFILE -> ProfileViewHolder(
-                LayoutInflater.from(parent.context).inflate(
-                    R.layout.view_holder_github_profile,
-                    parent,
-                    false
+                ViewHolderGithubProfileBinding.inflate(
+                    LayoutInflater.from(parent.context), parent, false
                 )
             )
             TYPE_TITLE -> TitleViewHolder(
-                LayoutInflater.from(parent.context).inflate(
-                    R.layout.view_holder_github_title,
-                    parent,
-                    false
+                ViewHolderGithubTitleBinding.inflate(
+                    LayoutInflater.from(parent.context), parent, false
                 )
             )
             TYPE_REPO -> RepoViewHolder(
-                LayoutInflater.from(parent.context).inflate(
-                    R.layout.view_holder_github_repo,
-                    parent,
-                    false
+                ViewHolderGithubRepoBinding.inflate(
+                    LayoutInflater.from(parent.context), parent, false
                 )
             )
             else -> throw NullPointerException("View type ($viewType) not found")

@@ -137,9 +137,3 @@
 -assumenosideeffects class kotlin.jvm.internal.Intrinsics {
     static void checkParameterIsNotNull(java.lang.Object, java.lang.String);
 }
-
-# Sentry
--keepattributes LineNumberTable,SourceFile
--dontwarn org.slf4j.**
--dontwarn javax.**
--keep class io.sentry.event.Event { *; }

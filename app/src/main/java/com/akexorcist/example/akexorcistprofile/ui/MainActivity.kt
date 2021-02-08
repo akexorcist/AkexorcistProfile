@@ -9,18 +9,17 @@ import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.akexorcist.example.akexorcistprofile.R
+import com.akexorcist.example.akexorcistprofile.databinding.ActivityMainBinding
 import com.google.android.play.core.splitinstall.*
 import com.google.android.play.core.splitinstall.model.SplitInstallSessionStatus
 import com.rilixtech.materialfancybutton.MaterialFancyButton
-import kotlinx.android.synthetic.main.activity_main.main_button_menu_blogger as buttonBlogger
-import kotlinx.android.synthetic.main.activity_main.main_button_menu_github as buttonGithub
-import kotlinx.android.synthetic.main.activity_main.main_button_menu_stackoverflow as buttonStackOverflow
-import kotlinx.android.synthetic.main.activity_main.main_progress_bar_menu_blogger as progressBarMenuBlogger
-import kotlinx.android.synthetic.main.activity_main.main_progress_bar_menu_github as progressBarMenuGithub
-import kotlinx.android.synthetic.main.activity_main.main_progress_bar_menu_stackoverflow as progressBarMenuStackoverflow
 
 
 class MainActivity : AppCompatActivity() {
+    private val binding: ActivityMainBinding by lazy {
+        ActivityMainBinding.inflate(layoutInflater)
+    }
+
     companion object {
         const val REQUEST_CODE_INSTALL_MODULE = 2313
 
@@ -42,7 +41,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        buttonGithub.setOnClickListener {
+        binding.mainButtonMenuGithub.setOnClickListener {
             requestDynamicFeature(
                 MODULE_GITHUB,
                 onInstalling = {
@@ -53,7 +52,7 @@ class MainActivity : AppCompatActivity() {
                 })
         }
 
-        buttonBlogger.setOnClickListener {
+        binding.mainButtonMenuBlogger.setOnClickListener {
             requestDynamicFeature(
                 MODULE_BLOGGER,
                 onInstalling = {
@@ -64,7 +63,7 @@ class MainActivity : AppCompatActivity() {
                 })
         }
 
-        buttonStackOverflow.setOnClickListener {
+        binding.mainButtonMenuStackoverflow.setOnClickListener {
             requestDynamicFeature(
                 MODULE_STACKOVERFLOW,
                 onInstalling = {
@@ -213,27 +212,27 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showGithubModuleContent() {
-        showContent(buttonGithub, progressBarMenuGithub)
+        showContent(binding.mainButtonMenuGithub, binding.mainProgressBarMenuGithub)
     }
 
     private fun showBloggerModuleContent() {
-        showContent(buttonBlogger, progressBarMenuBlogger)
+        showContent(binding.mainButtonMenuBlogger, binding.mainProgressBarMenuBlogger)
     }
 
     private fun showStackoverflowModuleContent() {
-        showContent(buttonStackOverflow, progressBarMenuStackoverflow)
+        showContent(binding.mainButtonMenuStackoverflow, binding.mainProgressBarMenuStackoverflow)
     }
 
     private fun showGithubModuleLoading() {
-        showLoading(buttonGithub, progressBarMenuGithub)
+        showLoading(binding.mainButtonMenuGithub, binding.mainProgressBarMenuGithub)
     }
 
     private fun showBloggerModuleLoading() {
-        showLoading(buttonBlogger, progressBarMenuBlogger)
+        showLoading(binding.mainButtonMenuBlogger, binding.mainProgressBarMenuBlogger)
     }
 
     private fun showStackoverflowModuleLoading() {
-        showLoading(buttonStackOverflow, progressBarMenuStackoverflow)
+        showLoading(binding.mainButtonMenuStackoverflow, binding.mainProgressBarMenuStackoverflow)
     }
 
     private fun showLoading(button: MaterialFancyButton, progressBar: ProgressBar) {
